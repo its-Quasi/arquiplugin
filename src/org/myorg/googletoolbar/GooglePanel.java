@@ -11,6 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import org.openide.awt.HtmlBrowser.URLDisplayer;
 
@@ -54,7 +56,7 @@ public class GooglePanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         minutesLbl = new javax.swing.JLabel();
         minutesInput = new javax.swing.JTextField();
-        goBtn = new javax.swing.JButton();
+        startBtn = new javax.swing.JButton();
         stopBtn = new javax.swing.JButton();
         pauseBtn = new javax.swing.JButton();
         timeLbl = new javax.swing.JLabel();
@@ -70,10 +72,10 @@ public class GooglePanel extends javax.swing.JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(goBtn, org.openide.util.NbBundle.getMessage(GooglePanel.class, "GooglePanel.goBtn.text")); // NOI18N
-        goBtn.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(startBtn, org.openide.util.NbBundle.getMessage(GooglePanel.class, "GooglePanel.startBtn.text")); // NOI18N
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBtnActionPerformed(evt);
+                startBtnActionPerformed(evt);
             }
         });
 
@@ -99,14 +101,14 @@ public class GooglePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(minutesInput, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(goBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pauseBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stopBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(timeLbl)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +117,7 @@ public class GooglePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(minutesLbl)
                     .addComponent(minutesInput, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(goBtn)
+                    .addComponent(startBtn)
                     .addComponent(stopBtn)
                     .addComponent(pauseBtn)
                     .addComponent(timeLbl))
@@ -125,20 +127,23 @@ public class GooglePanel extends javax.swing.JPanel {
 
     private void minutesInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutesInputActionPerformed
         // TODO add your handling code here:
-        try {
-            String searchText = URLEncoder.encode(minutesInput.getText(), "UTF-8");
-            URLDisplayer.getDefault().showURL(new URL("https://www.google.com/search?q=" + searchText));
-        } catch (UnsupportedEncodingException | MalformedURLException eee) {
-            //nothing much to do
-        }
     }//GEN-LAST:event_minutesInputActionPerformed
 
-    private void goBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBtnActionPerformed
-        // TODO add your handling code here:
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         String txtMinutes = minutesInput.getText().trim();
-        if("".equals(txtMinutes)) return ;
+
+        //Valida si el tiempo ingresado es vacio o menor a 0.
+        if("".equals(txtMinutes) || txtMinutes.indexOf(",") != -1 || txtMinutes.indexOf(".") != -1 || (Double.parseDouble(txtMinutes) < 0) ){
+            JOptionPane.showMessageDialog(new JFrame(), "Error!, para iniciar el contador debes ingresar un número que sea mayor a 0 y debe ser entero.", "Dialog", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //Variables para pasar el número a minutos
         int operableMinutes = Integer.parseInt(txtMinutes);
         int totalSeconds = operableMinutes * 60;
+        
+        //Deshabilitar botón Start
+        startBtn.setEnabled(false);
         
         //Create a StopWacht
         int hours = totalSeconds / 3600;
@@ -148,8 +153,7 @@ public class GooglePanel extends javax.swing.JPanel {
         int seconds = totalSeconds / 60;
         stopwatch = new Stopwatch(hours, minutes, seconds);
         time.start();
-        
-    }//GEN-LAST:event_goBtnActionPerformed
+    }//GEN-LAST:event_startBtnActionPerformed
 
     private void stopBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopBtnActionPerformed
         // TODO add your handling code here:
@@ -158,11 +162,11 @@ public class GooglePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton goBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JTextField minutesInput;
     private javax.swing.JLabel minutesLbl;
     private javax.swing.JButton pauseBtn;
+    private javax.swing.JButton startBtn;
     private javax.swing.JButton stopBtn;
     private javax.swing.JLabel timeLbl;
     // End of variables declaration//GEN-END:variables
