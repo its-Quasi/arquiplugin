@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.myorg.googletoolbar">
-    <module_version install_time="1677712419702" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1677714712536" last="true" origin="installer" specification_version="1.0">
         <file crc="1128909579" name="config/Modules/org-myorg-googletoolbar.xml"/>
-        <file crc="490068707" name="modules/org-myorg-googletoolbar.jar"/>
+        <file crc="2564059847" name="modules/org-myorg-googletoolbar.jar"/>
     </module_version>
 </module>

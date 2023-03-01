@@ -35,11 +35,6 @@ java.lang.Object
 org.myorg.googletoolbar.GooglePanel$1
 org.myorg.googletoolbar.GooglePanel
 javax.swing.Timer
-||:org.myorg.googletoolbar.GooglePanel$2
-java.awt.event.ActionListener
-java.lang.Object
-org.myorg.googletoolbar.GooglePanel$2
-org.myorg.googletoolbar.GooglePanel
 ||:org.myorg.googletoolbar.GooglePanel
 javax.swing.JTextField
 java.lang.Double
@@ -69,3 +64,8 @@ javax.swing.GroupLayout
 org.openide.util.NbBundle
 javax.swing.GroupLayout$ParallelGroup
 javax.swing.JPanel
+||:org.myorg.googletoolbar.GooglePanel$2
+java.awt.event.ActionListener
+java.lang.Object
+org.myorg.googletoolbar.GooglePanel$2
+org.myorg.googletoolbar.GooglePanel

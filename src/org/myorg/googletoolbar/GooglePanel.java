@@ -28,6 +28,7 @@ public class GooglePanel extends javax.swing.JPanel {
     public GooglePanel() {
         initComponents();
         time = new Timer(1000, actions);
+        pauseBtn.setEnabled(false);
     }
    
     private ActionListener actions = new ActionListener(){
@@ -149,7 +150,7 @@ public class GooglePanel extends javax.swing.JPanel {
         
         //Deshabilitar botón Start
         startBtn.setEnabled(false);
-        
+        pauseBtn.setEnabled(true);
         //Create a StopWacht
         int hours = totalSeconds / 3600;
         totalSeconds %= 3600;
@@ -169,6 +170,7 @@ public class GooglePanel extends javax.swing.JPanel {
 
         
         pauseBtn.setText("Pause");
+        pauseBtn.setEnabled(false);
     }//GEN-LAST:event_stopBtnActionPerformed
 
     private void pauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtnActionPerformed
