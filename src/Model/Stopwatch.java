@@ -84,4 +84,7 @@ public class Stopwatch {
     public boolean finished(){
         return hours + seconds + minutes == 0;
     }
+    public void toFinish(){
+        this.hours = this.minutes = this.seconds = 0;
+    }
 }

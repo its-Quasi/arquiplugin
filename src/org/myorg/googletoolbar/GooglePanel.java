@@ -87,6 +87,11 @@ public class GooglePanel extends javax.swing.JPanel {
         });
 
         org.openide.awt.Mnemonics.setLocalizedText(pauseBtn, org.openide.util.NbBundle.getMessage(GooglePanel.class, "GooglePanel.pauseBtn.text")); // NOI18N
+        pauseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseBtnActionPerformed(evt);
+            }
+        });
 
         timeLbl.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(timeLbl, org.openide.util.NbBundle.getMessage(GooglePanel.class, "GooglePanel.timeLbl.text")); // NOI18N
@@ -163,7 +168,19 @@ public class GooglePanel extends javax.swing.JPanel {
         timeLbl.setText("00:00:00");
 
         
+        pauseBtn.setText("Pause");
     }//GEN-LAST:event_stopBtnActionPerformed
+
+    private void pauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtnActionPerformed
+        // TODO add your handling code here:
+        if("Pause".equals(pauseBtn.getText())){
+        time.stop();
+        pauseBtn.setText("Resume");
+        }else{
+           time.start(); 
+           pauseBtn.setText("Pause");
+        }
+    }//GEN-LAST:event_pauseBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
