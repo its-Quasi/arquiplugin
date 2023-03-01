@@ -156,7 +156,12 @@ public class GooglePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void stopBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopBtnActionPerformed
-        // TODO add your handling code here:
+        //Stoped counter and cleaned
+
+        time.stop();
+        startBtn.setEnabled(true);
+        timeLbl.setText("00:00:00");
+
         
     }//GEN-LAST:event_stopBtnActionPerformed
 
