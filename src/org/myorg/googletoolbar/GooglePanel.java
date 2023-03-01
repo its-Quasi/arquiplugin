@@ -156,7 +156,8 @@ public class GooglePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void stopBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopBtnActionPerformed
-        // TODO add your handling code here:
+        // Stoped a AtopWacht
+        time.stop();
         
     }//GEN-LAST:event_stopBtnActionPerformed
 
