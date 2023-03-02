@@ -44,6 +44,9 @@ public class GooglePanel extends javax.swing.JPanel {
             if (stopwatch.finished()) {
                 reproducirSonido();
                 time.stop();
+                stopBtn.setEnabled(false);
+                pauseBtn.setEnabled(false);
+                startBtn.setEnabled(true);
                 JOptionPane.showMessageDialog(new JFrame(), "Ha finalizado el tiempo", "Dialog", JOptionPane.INFORMATION_MESSAGE);
             }
         }
@@ -172,6 +175,7 @@ public class GooglePanel extends javax.swing.JPanel {
         //Disable button start and pause
         startBtn.setEnabled(false);
         pauseBtn.setEnabled(true);
+        stopBtn.setEnabled(true);
         //Create a StopWacht
         int hours = totalSeconds / 3600;
         totalSeconds %= 3600;
