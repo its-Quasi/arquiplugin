@@ -37,7 +37,7 @@ Proyecto desarrollado por:
 - Santiago Felipe Alferez Villamizar (**santiagofelipeavil@ufps.edu.co**)
 - Carlos Eduardo Contreras Mendoza (**carloseduardocmen@ufps.efu.co**)
 - Harold Rueda Antolinez (**haroldrant@ufps.edu.co**)
-- Oscar Ivan Bayona Martinez (**oscarivanbdia@ufps.edu.co**)
+- Oscar Ivan Bayona Diaz (**oscarivanbdia@ufps.edu.co**)
 ------------------------------------------
 #### Institución Académica 🏫
 Plugin de NetBeans desarrollado para la materia de arquitectura de software [Programa de Ingeniería de Sistemas](<https://ingsistemas.cloud.ufps.edu.co/>) de la [Universidad Francisco de Paula Santander](<https://ww2.ufps.edu.co/>).
