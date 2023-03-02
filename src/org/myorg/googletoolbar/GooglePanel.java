@@ -4,17 +4,21 @@
  * and open the template in the editor.
  */
 package org.myorg.googletoolbar;
+
 import Model.Stopwatch;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import org.openide.awt.HtmlBrowser.URLDisplayer;
 
 /**
  *
@@ -23,28 +27,45 @@ import org.openide.awt.HtmlBrowser.URLDisplayer;
 public class GooglePanel extends javax.swing.JPanel {
 
     private Timer time;
-    private Stopwatch stopwatch; 
+    private Stopwatch stopwatch;
+
     /*Creates new form GooglePanel*/
     public GooglePanel() {
         initComponents();
         time = new Timer(1000, actions);
         pauseBtn.setEnabled(false);
     }
-   
-    private ActionListener actions = new ActionListener(){
+
+    private ActionListener actions = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             stopwatch.decreaseSeconds();
             updateTimeLabel();
-            if(stopwatch.finished()){
+            if (stopwatch.finished()) {
+                reproducirSonido();
                 time.stop();
+                JOptionPane.showMessageDialog(new JFrame(), "Ha finalizado el tiempo", "Dialog", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     };
-    
-    private void updateTimeLabel(){
+
+    private void reproducirSonido() {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/wav/despertador.wav").getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-20.0f); // Reduce volume by 10 decibels.
+            clip.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error al reproducir el sonido.");
+        }
+    }
+
+    private void updateTimeLabel() {
         this.timeLbl.setText(this.stopwatch.toString());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,17 +159,17 @@ public class GooglePanel extends javax.swing.JPanel {
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         String txtMinutes = minutesInput.getText().trim();
 
-        //Valida si el tiempo ingresado es vacio o menor a 0.
-        if("".equals(txtMinutes) || txtMinutes.indexOf(",") != -1 || txtMinutes.indexOf(".") != -1 || (Double.parseDouble(txtMinutes) < 0) ){
+        //Validate if the time ingresed is empty or less than 0.
+        if ("".equals(txtMinutes) || txtMinutes.indexOf(",") != -1 || txtMinutes.indexOf(".") != -1 || (Double.parseDouble(txtMinutes) < 0)) {
             JOptionPane.showMessageDialog(new JFrame(), "Error!, para iniciar el contador debes ingresar un número que sea mayor a 0 y debe ser entero.", "Dialog", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        //Variables para pasar el número a minutos
+
+        //Variables to pass the number to minutes
         int operableMinutes = Integer.parseInt(txtMinutes);
         int totalSeconds = operableMinutes * 60;
-        
-        //Deshabilitar botón Start
+
+        //Disable button start and pause
         startBtn.setEnabled(false);
         pauseBtn.setEnabled(true);
         //Create a StopWacht
@@ -163,24 +184,21 @@ public class GooglePanel extends javax.swing.JPanel {
 
     private void stopBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopBtnActionPerformed
         //Stoped counter and cleaned
-
         time.stop();
         startBtn.setEnabled(true);
         timeLbl.setText("00:00:00");
-
-        
         pauseBtn.setText("Pause");
         pauseBtn.setEnabled(false);
     }//GEN-LAST:event_stopBtnActionPerformed
 
     private void pauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtnActionPerformed
-        // TODO add your handling code here:
-        if("Pause".equals(pauseBtn.getText())){
-        time.stop();
-        pauseBtn.setText("Resume");
-        }else{
-           time.start(); 
-           pauseBtn.setText("Pause");
+        // Pause time and resume 
+        if ("Pause".equals(pauseBtn.getText())) {
+            time.stop();
+            pauseBtn.setText("Resume");
+        } else {
+            time.start();
+            pauseBtn.setText("Pause");
         }
     }//GEN-LAST:event_pauseBtnActionPerformed
 
