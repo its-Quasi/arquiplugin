@@ -47,7 +47,7 @@ public class GooglePanel extends javax.swing.JPanel {
                 stopBtn.setEnabled(false);
                 pauseBtn.setEnabled(false);
                 startBtn.setEnabled(true);
-                JOptionPane.showMessageDialog(new JFrame(), "Ha finalizado el tiempo", "Dialog", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame(), "Ha finalizado el tiempo", "Info", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     };
@@ -163,8 +163,8 @@ public class GooglePanel extends javax.swing.JPanel {
         String txtMinutes = minutesInput.getText().trim();
 
         //Validate if the time ingresed is empty or less than 0.
-        if ("".equals(txtMinutes) || txtMinutes.indexOf(",") != -1 || txtMinutes.indexOf(".") != -1 || (Double.parseDouble(txtMinutes) < 0)) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error!, para iniciar el contador debes ingresar un número que sea mayor a 0 y debe ser entero.", "Dialog", JOptionPane.ERROR_MESSAGE);
+        if ("".equals(txtMinutes) || txtMinutes.indexOf(",") != -1 || txtMinutes.indexOf(".") != -1 || (Double.parseDouble(txtMinutes) <= 0)) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error!, para iniciar el contador debes ingresar un número que sea mayor a 0 y debe ser entero.", "Oops", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
