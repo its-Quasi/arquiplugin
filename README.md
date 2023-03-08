@@ -1,25 +1,52 @@
-# Temporizador para NetBeans 
+
+# PomoBeans: Temporizador para NetBeans 
 
 ## Tabla de Contenidos📑
-1. [Características 👨‍💻](#características-)
+1. [Introducción👨‍💻](#características-)
 2. [Tecnologías 👾](#tecnologías-)
 3. [Instalación :boom:](#instalación-boom)
-4. [IDE y Herramientas⚙️](#ide-y-herramientas%EF%B8%8F)
-5. [Licencia 📫](#licencia-)
-6. [Institución Académica 🏫](#institución-académica-)
-7. [Autor(es) ✒️](#autores-%EF%B8%8F)
-8. [Referencias 📖](#referencias-)
+4. [Configuracion:](#configuracion)
+5. [IDE y Herramientas⚙️](#ide-y-herramientas%EF%B8%8F)
+6. [Licencia 📫](#licencia-)
+7. [Institución Académica 🏫](#institución-académica-)
+8. [Autor(es) ✒️](#autores-%EF%B8%8F)
 
-## Características 👨‍💻
-- Plugin que permite tener un contador en la parte superior de la IDE net beans, este podra iniciarse con el tiempo que el usuario desee y pausarse o deternese cuando el tiempo termine o cuando el usuario lo determine.
+## Introducción👨‍💻
+PomoBeans es una herramienta de gestión del tiempo que te ayuda a optimizar tu productividad. Su característica principal es un reloj pomodoro que te ayuda a tomar tiempos de descanso y trabajar en bloques de tiempo determinados para maximizar tu eficiencia. Además, puedes darle uso para establecer un tiempo para realizar una tarea específica. Con esta función, puedes establecer un tiempo objetivo para una tarea. Es fácil de usar y se integra perfectamente con tu flujo de trabajo, lo que lo convierte en una herramienta esencial para cualquier persona que busque aumentar su productividad y mejorar su enfoque en las tareas importantes.
 
 
 ## Tecnologías 👾
 - [![Java](https://img.shields.io/badge/Java-blue)](https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n))
-- [![Librerias](https://img.shields.io/badge/librerias-java)](https://sites.google.com/site/primerosistems/materias/algoritmos/librerias-java)
 
 ## Instalación :boom:
+```bash
+git clone https://github.com/its-Quasi/arquiplugin.git
+```
+## Configuración
 
+1. Abrimos el proyecto en el IDE NetBeans
+2. Una vez abierto el proyecto seguimos la siguiente ruta:
+```bash
+├───pomobeans
+   └───Important Files
+        └───Per-user NetBeans Platform Config
+            └───user.properties.file
+```
+3. Una vez ingresamos a  `user.properties.file` veremos el siguiente código:
+```python
+user.properties.file=C:\\Users\\'USER'\\AppData\\Roaming\\NetBeans\\'VERSION'\\build.properties
+```
+4.  Procedemos a cambiar las siguientes palabras: 
+```python 
+la palabra 'USER' debera ser cambiada por el usuario en el cual esta iniciada la sesion
+```
+```python 
+la palabra 'VERSION' debera ser cambiada por la version actual de netbeans que tenga en su PC
+```
+5. Luego de realizar los cambios debemos dar clic derecho en nuestro proyecto/plugin y dar clic en: 
+```
+Install/Reload in Development IDE
+```
 
 ## IDE y Herramientas⚙️
 ### El proyecto se desarrolla con las herramientas:
@@ -40,9 +67,3 @@ Proyecto desarrollado por:
 - Carlos Eduardo Contreras Mendoza (**carloseduardocmen@ufps.efu.co**)
 - Harold Rueda Antolinez (**haroldrant@ufps.edu.co**)
 - Oscar Ivan Bayona Diaz (**oscarivanbdia@ufps.edu.co**)
-
-## Referencias 📖
-#### NetBeans. (2023). Wikipedia, La enciclopedia libre, desde https://es.wikipedia.org/wiki/Microsoft_Visual_Studio.
-#### Java. (2023). Wikipedia, La enciclopedia libre, desde https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n)
-#### Plugin. (2023). Wikipedia, La enciclopedia libre, desde https://es.wikipedia.org/wiki/Complemento_(inform%C3%A1tica)
-#### Libreria. (2023). Wikipedia, La enciclopedia libre, desde https://es.wikipedia.org/wiki/Biblioteca_(inform%C3%A1tica)
