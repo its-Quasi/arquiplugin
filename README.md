@@ -3,7 +3,7 @@
 ## Tabla de Contenidos📑
 1. [Características 👨‍💻](#características-)
 2. [Tecnologías 👾](#tecnologías-)
-3. [Instalación :boom:](instalación-boom)
+3. [Instalación :boom:](#instalación-boom)
 4. [IDE y Herramientas⚙️](#ide-y-herramientas%EF%B8%8F)
 5. [Licencia 📫](#licencia-)
 6. [Institución Académica 🏫](#institución-académica-)
