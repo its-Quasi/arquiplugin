@@ -1,22 +1,27 @@
+<img src="img/BotNeoDesign.png" align="right" />
 
-# PomoBeans: Temporizador para NetBeans 
+# PomoBeans: Temporizador para NetBeans ![Awesome](https://cdn.jsdelivr.net/gh/sindresorhus/awesome@d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
 
 ## Tabla de Contenidos📑
-1. [Introducción👨‍💻](#características-)
-3. [Instalación :boom:](#instalación-boom)
-4. [Configuracion:](#configuracion)
-5. [Tecnologías y Herramientas](#Tecnologías y Herramientas⚙️)
-6. [Licencia 📫](#licencia-)
-7. [Institución Académica 🏫](#institución-académica-)
-8. [Autor(es) ✒️](#autores-%EF%B8%8F)
+1. [Introducción 👨‍💻](#introducción)
+2. [Instalación :boom:](#instalación-boom)
+3. [Configuracion ⚙️](#configuración-%EF%B8%8F)
+4. [Tecnologías y Herramientas ⚙️](#tecnologías-y-herramientas%EF%B8%8F)
+5. [Licencia 📫](#licencia-)
+6. [Institución Académica 🏫](#institución-académica-)
+7. [Autor(es) ✒️](#autores-%EF%B8%8F)
 
 ## Introducción👨‍💻
 PomoBeans es una herramienta de gestión del tiempo que te ayuda a optimizar tu productividad. Su característica principal es un reloj pomodoro que te ayuda a tomar tiempos de descanso y trabajar en bloques de tiempo determinados para maximizar tu eficiencia. Además, puedes darle uso para establecer un tiempo para realizar una tarea específica. Con esta función, puedes establecer un tiempo objetivo para una tarea. Es fácil de usar y se integra perfectamente con tu flujo de trabajo, lo que lo convierte en una herramienta esencial para cualquier persona que busque aumentar su productividad y mejorar su enfoque en las tareas importantes.
 
 ## Instalación :boom:
+
+Abrimos una consola de Gitbash o línea de comandos y copiamos el siguiente comando.
+
 ```git
 git clone https://github.com/its-Quasi/arquiplugin.git
 ```
+
 ## Configuración ⚙️
 
 1. Abrimos el proyecto en el IDE NetBeans
